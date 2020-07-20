@@ -11,12 +11,10 @@ const pkg = require('./package.json')
 
 const templateVersion = pkg.version
 
-const { addTestAnswers } = require('./scenarios')
 
 module.exports = {
   metalsmith: {
     // When running tests for the template, this adds answers for the selected scenario
-    before: addTestAnswers
   },
   helpers: {
     if_or(v1, v2, options) {
@@ -33,105 +31,47 @@ module.exports = {
   },
   
   prompts: {
-    name: {
-      when: 'isNotTest',
-      type: 'string',
-      required: true,
-      message: 'Project name',
-    },
-    description: {
-      when: 'isNotTest',
-      type: 'string',
-      required: false,
-      message: 'Project description',
-      default: 'A Vue.js project',
-    },
     author: {
       when: 'isNotTest',
       type: 'string',
-      message: 'Author',
+      required: true,
+      message: '你的名字',
     },
-    build: {
-      when: 'isNotTest',
-      type: 'list',
-      message: 'Vue build',
+    MTh5: {
+      type: 'checkbox',
+      message: '请勾选您所需要的颜色',
       choices: [
         {
-          name: 'Runtime + Compiler: recommended for most users',
-          value: 'standalone',
-          short: 'standalone',
+          name: "yellow",
         },
         {
-          name:
-            'Runtime-only: about 6KB lighter min+gzip, but templates (or any Vue-specific HTML) are ONLY allowed in .vue files - render functions are required elsewhere',
-          value: 'runtime',
-          short: 'runtime',
-        },
+          name: "blue",
+          checked: true // 默认选中
+        }
       ],
     },
-    router: {
-      when: 'isNotTest',
+    wantFruit: {
       type: 'confirm',
-      message: 'Install vue-router?',
+      message: '是否启用 水果改变控件？',
     },
-    lint: {
-      when: 'isNotTest',
-      type: 'confirm',
-      message: 'Use ESLint to lint your code?',
-    },
-    lintConfig: {
-      when: 'isNotTest && lint',
+    fruit: {
+      when: 'wantFruit',
       type: 'list',
-      message: 'Pick an ESLint preset',
+      message: '请选择水果',
       choices: [
         {
-          name: 'Standard (https://github.com/standard/standard)',
-          value: 'standard',
-          short: 'Standard',
+          name: '苹果',
+          value: 'apple'
         },
         {
-          name: 'Airbnb (https://github.com/airbnb/javascript)',
-          value: 'airbnb',
-          short: 'Airbnb',
+          name: '菠萝',
+          value: 'pear'
         },
         {
-          name: 'none (configure it yourself)',
-          value: 'none',
-          short: 'none',
-        },
+          name: '香蕉',
+          value: 'banner'
+        }
       ],
-    },
-    unit: {
-      when: 'isNotTest',
-      type: 'confirm',
-      message: 'Set up unit tests',
-    },
-    runner: {
-      when: 'isNotTest && unit',
-      type: 'list',
-      message: 'Pick a test runner',
-      choices: [
-        {
-          name: 'Jest',
-          value: 'jest',
-          short: 'jest',
-        },
-        {
-          name: 'Karma and Mocha',
-          value: 'karma',
-          short: 'karma',
-        },
-        {
-          name: 'none (configure it yourself)',
-          value: 'noTest',
-          short: 'noTest',
-        },
-      ],
-    },
-    e2e: {
-      when: 'isNotTest',
-      type: 'confirm',
-      message: 'Setup e2e tests with Nightwatch?',
     },
     autoInstall: {
       when: 'isNotTest',
@@ -158,18 +98,7 @@ module.exports = {
     },
   },
   filters: {
-    '.eslintrc.js': 'lint',
-    '.eslintignore': 'lint',
-    'config/test.env.js': 'unit || e2e',
-    'build/webpack.test.conf.js': "unit && runner === 'karma'",
-    'test/unit/**/*': 'unit',
-    'test/unit/index.js': "unit && runner === 'karma'",
-    'test/unit/jest.conf.js': "unit && runner === 'jest'",
-    'test/unit/karma.conf.js': "unit && runner === 'karma'",
-    'test/unit/specs/index.js': "unit && runner === 'karma'",
-    'test/unit/setup.js': "unit && runner === 'jest'",
-    'test/e2e/**/*': 'e2e',
-    'src/router/**/*': 'router',
+    '.eslintrc.js': 'lint'
   },
   complete: function(data, { chalk }) {
     const green = chalk.green
