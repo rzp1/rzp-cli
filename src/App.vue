@@ -1,16 +1,16 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    {{#lang-change}}
+    {{#if langChange}}
     <router-view/>
     {{else}}
     <HelloWorld/>
-    {{/lang-change}}
+    {{/if}}
   </div>
 </template>
 
 <script>
-{{#unless lang-change}}
+{{#unless langChange}}
 import HelloWorld from './components/HelloWorld'
 
 {{/unless}}

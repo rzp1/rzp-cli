@@ -13,15 +13,15 @@
     "vue-router": "^3.0.1"
   },
   "devDependencies": {
-    {{#if fruit "pear"}}
+    {{#if_eq fruit "pear"}}
     "pear": "^11.3.0",
-    {{/if}}
-    {{#if fruit "apple"}}
+    {{/if_eq}}
+    {{#if_eq fruit "apple"}}
     "apple": "^11.3.0",
-    {{/if}}
-    {{#if fruit "banner"}}
+    {{/if_eq}}
+    {{#if_eq fruit "banner"}}
     "banner": "^11.3.0",
-    {{/if}}
+    {{/if_eq}}
   },
   "engines": {
     "node": ">= 6.0.0",
