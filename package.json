@@ -1,0 +1,35 @@
+{
+  "name": "{{ name }}",
+  "version": "1.0.0",
+  "description": "{{ description }}",
+  "author": "{{ author }}",
+  "private": true,
+  "scripts": {
+    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+    "start": "npm run dev",
+  },
+  "dependencies": {
+    "vue": "^2.5.2",
+    "vue-router": "^3.0.1"
+  },
+  "devDependencies": {
+    {{#if fruit "pear"}}
+    "pear": "^11.3.0",
+    {{/if}}
+    {{#if fruit "apple"}}
+    "apple": "^11.3.0",
+    {{/if}}
+    {{#if fruit "banner"}}
+    "banner": "^11.3.0",
+    {{/if}}
+  },
+  "engines": {
+    "node": ">= 6.0.0",
+    "npm": ">= 3.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
+}
