@@ -10,7 +10,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.meitu.com/meitu/rzp-cli.git",
     "directory": "packages/rzp-cli"
   },
   "keywords": [

@@ -16,7 +16,7 @@ function checkNodeVersion (wanted, id) {
   }
 }
 
-checkNodeVersion(requiredVersion, '@meitu/rzp-cli')
+checkNodeVersion(requiredVersion, 'rzp-cli')
 
 // const fs = require('fs')
 // const path = require('path')
@@ -38,7 +38,7 @@ const program = require('commander')
 // console.log('process.argv',process.argv)
 
 program
-  .version(`@meitu/rzp-cli ${require('../package').version}`)
+  .version(`rzp-cli ${require('../package').version}`)
   .usage('<command> [options]')
 
 program

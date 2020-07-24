@@ -1,1 +1,1 @@
-# @meitu/mr-cli
+# rzp-cli
