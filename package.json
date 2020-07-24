@@ -1,5 +1,5 @@
 {
-  "name": "@meitu/rzp-cli",
+  "name": "rzp-cli",
   "version": "1.0.0",
   "description": "Command line interface for rapid Vue.js development",
   "bin": {
@@ -11,19 +11,14 @@
   "repository": {
     "type": "git",
     "url": "git+https://gitlab.meitu.com/meitu/rzp-cli.git",
-    "directory": "packages/@meitu/rzp-cli"
+    "directory": "packages/rzp-cli"
   },
   "keywords": [
-    "meitu",
     "cli",
     "rzp"
   ],
-  "author": "rzp@meitu.com",
+  "author": "renzhipeng0310@gmail.com",
   "license": "MIT",
-  "bugs": {
-    "url": "https://gitlab.meitu.com/meitu/rzp-cli/issues"
-  },
-  "homepage": "https://gitlab.meitu.com/meitu/rzp-cli/README.md",
   "publishConfig": {
     "access": "public"
   },
