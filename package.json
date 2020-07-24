@@ -1,35 +1,45 @@
 {
-  "name": "{{ name }}",
+  "name": "@meitu/rzp-cli",
   "version": "1.0.0",
-  "description": "{{ author }}",
-  "author": "{{ author }}",
-  "private": true,
+  "description": "Command line interface for rapid Vue.js development",
+  "bin": {
+    "rzp": "bin/rzp.js"
+  },
   "scripts": {
-    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
-    "start": "npm run dev"
+    "rzp": "node ./bin/rzp.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.meitu.com/meitu/rzp-cli.git",
+    "directory": "packages/@meitu/rzp-cli"
+  },
+  "keywords": [
+    "meitu",
+    "cli",
+    "rzp"
+  ],
+  "author": "rzp@meitu.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://gitlab.meitu.com/meitu/rzp-cli/issues"
+  },
+  "homepage": "https://gitlab.meitu.com/meitu/rzp-cli/README.md",
+  "publishConfig": {
+    "access": "public"
   },
   "dependencies": {
-    "vue": "^2.5.2",
-    "vue-router": "^3.0.1"
-  },
-  "devDependencies": {
-    {{#if_eq fruit "pear"}}
-    "pear": "^11.3.0",
-    {{/if_eq}}
-    {{#if_eq fruit "apple"}}
-    "apple": "^11.3.0",
-    {{/if_eq}}
-    {{#if_eq fruit "banner"}}
-    "banner": "^11.3.0",
-    {{/if_eq}}
+    "chalk": "^4.0.0",
+    "commander": "^2.20.0",
+    "download-git-repo": "^3.0.2",
+    "handlebars": "^4.7.6",
+    "inquirer": "^7.1.0",
+    "metalsmith": "^2.3.0",
+    "minimatch": "^3.0.4",
+    "minimist": "^1.2.5",
+    "ora": "^4.0.4",
+    "semver": "^7.3.2"
   },
   "engines": {
-    "node": ">= 6.0.0",
-    "npm": ">= 3.0.0"
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 8"
-  ]
+    "node": ">=8.9"
+  }
 }

@@ -1,2 +1,1 @@
-# rzp-cli
-脚手架
+# @meitu/mr-cli
